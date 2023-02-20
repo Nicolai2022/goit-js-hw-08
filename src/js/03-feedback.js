@@ -26,7 +26,12 @@ try {
 } catch (error) {
   console.error('Get state error: ', error.message);
 }
-
+const formKeys = Object.keys(outputForm);
+formKeys.forEach(element => {
+    document.querySelector(`[name='${element}']`).value = outputForm[element];
+});
 })();
+
+
 
 
