@@ -33,5 +33,19 @@ formKeys.forEach(element => {
 })();
 
 
+(function dataFromLocalStorage() {
 
+  try {
+   const load = localStorage.getItem('feedback-form-state');
+   if (!load) return
+   formData = JSON.parse(load);
+   const formKeys = Object.entries(load);
+   formKeys.forEach(([name, value]) => {
+   form[name].value = value;
+    });
+  } catch (error) {
+   console.error('Get state error: ', error.message);
+  }
+  
+  })(); 
 
